@@ -18,6 +18,7 @@ if [ "$1" = "dev" ]; then
         exit 1
     fi
     git push
+    git checkout $current_branch_name
 elif [ "$1" = "release" ]; then
     git checkout release 
     git pull
