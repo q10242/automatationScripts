@@ -8,6 +8,8 @@ current_branch_name=${branch_name##refs/heads/}
 current_branch_name=${branch_name:-HEAD}
 
 if [ "$1" = "dev" ]; then
+    git add .
+    git commit -m "[${current_branch_name}] terminating commit to merge"
     git checkout dev 
     git pull
     git merge $current_branch_name
@@ -19,6 +21,10 @@ if [ "$1" = "dev" ]; then
     fi
     git push
     git checkout $current_branch_name
+<<<<<<< HEAD
+=======
+    ## test message
+>>>>>>> AutoPush
 elif [ "$1" = "release" ]; then
     git checkout release 
     git pull
