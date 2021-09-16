@@ -3,7 +3,7 @@
 release_branch=release
 dev_branch=dev
 
-current_branch_name=branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+current_branch_name=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 if [ "$1" = "dev" ]; then
     git add .
