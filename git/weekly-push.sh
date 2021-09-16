@@ -3,9 +3,7 @@
 release_branch=release
 dev_branch=dev
 
-current_branch_name=$(git symbolic-ref -q HEAD)
-current_branch_name=${branch_name##refs/heads/}
-current_branch_name=${branch_name:-HEAD}
+current_branch_name=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 if [ "$1" = "dev" ]; then
     git add .
@@ -16,14 +14,18 @@ if [ "$1" = "dev" ]; then
     CONFLICTS=$(git ls-files -u | wc -l)
     if [ "$CONFLICTS" -gt 0 ] ; then
         echo "There is a merge conflict. Aborting"
-        git merge --abort
         exit 1
     fi
     git push
     git checkout $current_branch_name
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     ## test message
+>>>>>>> AutoPush
+=======
+    echo $current_branch_name
+    
 >>>>>>> AutoPush
 elif [ "$1" = "release" ]; then
     git checkout release 
