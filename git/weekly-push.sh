@@ -18,15 +18,8 @@ if [ "$1" = "dev" ]; then
     fi
     git push
     git checkout $current_branch_name
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    ## test message
->>>>>>> AutoPush
-=======
     echo $current_branch_name
-    
->>>>>>> AutoPush
+     # test
 elif [ "$1" = "release" ]; then
     git checkout release 
     git pull
