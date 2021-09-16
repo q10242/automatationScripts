@@ -21,7 +21,7 @@ if [ "$1" = "dev" ]; then
     fi
     git push
     git checkout $current_branch_name
-    ## test message
+    ## test messageggg
 elif [ "$1" = "release" ]; then
     git checkout release 
     git pull
