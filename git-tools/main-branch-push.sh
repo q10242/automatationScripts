@@ -1,5 +1,5 @@
 #! /bin/bash
-# release weekly progress or 
+# 把目前所在分支 推到dev 或者release 
 release_branch=release
 dev_branch=dev
 
