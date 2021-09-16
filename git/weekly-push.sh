@@ -10,7 +10,7 @@ if [ "$1" = "dev" ]; then
     git commit -m "[${current_branch_name}] terminating commit to merge"
     git checkout dev 
     git pull
-    git merge $current_branch_name --default
+    git merge $current_branch_name -q
     CONFLICTS=$(git ls-files -u | wc -l)
     if [ "$CONFLICTS" -gt 0 ] ; then
         echo "There is a merge conflict. Aborting"
