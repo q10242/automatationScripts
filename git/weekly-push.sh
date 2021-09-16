@@ -3,9 +3,7 @@
 release_branch=release
 dev_branch=dev
 
-current_branch_name=$(git symbolic-ref -q HEAD)
-current_branch_name=${branch_name##refs/heads/}
-current_branch_name=${branch_name:-HEAD}
+current_branch_name=branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 if [ "$1" = "dev" ]; then
     git add .
@@ -22,7 +20,7 @@ if [ "$1" = "dev" ]; then
     git push
     git checkout $current_branch_name
     echo $current_branch_name
-    ## test messageggg
+    
 elif [ "$1" = "release" ]; then
     git checkout release 
     git pull
